@@ -38,6 +38,9 @@ test('ContactForm adds new contacts', () => {
    fireEvent.click(submitButton);
    
    //assert that inputs show up under the form
-    const newContact = screen.findByText(/joey/i)
+    const newFirstName = screen.findByText(/joey/i)
+    const newNewlastName = screen.findByText(/wheeler/i)
+    const newEmail = screen.findByText(/duelmonsters@gmail.com/i)
+    const newMessage = screen.findByText(/i hate seto kaiba/i)
     // expect(newContact).toBeInTheDocument();
    })
