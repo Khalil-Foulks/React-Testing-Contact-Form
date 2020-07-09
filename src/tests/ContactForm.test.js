@@ -17,6 +17,11 @@ test('ContactForm adds new contacts', () => {
     fireEvent.change(emailInput, { target:{ value:'duelmonsters@gmail.com'} })
     fireEvent.change(messageInput, { target:{ value:'I hate Seto Kaiba.'} })
 
+    expect(firstNameInput.value).toBe('Joey')
+    expect(lastNameInput.value).toBe('Wheeler')
+    expect(emailInput.value).toBe('duelmonsters@gmail.com')
+    expect(messageInput.value).toBe('I hate Seto Kaiba.')
+
     //firstname should contain placeholder = Edd
     //Lastname should contain placeholder = Burke
     //email should contain a placeholder = bluebill1049@hotmail.com
@@ -29,9 +34,10 @@ test('ContactForm adds new contacts', () => {
    //first 3 inputs should be required
    
    //click submit button
-   const submitButton = screen.getByTestId(/submit/i);
-   console.log(submitButton)
+   const submitButton = screen.getByRole('button');
    fireEvent.click(submitButton);
    
    //assert that inputs show up under the form
+    const newContact = screen.findByText(/joey/i)
+    // expect(newContact).toBeInTheDocument();
    })
